@@ -1,0 +1,26 @@
+{
+  "name": "zerrow",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.2",
+    "@openzeppelin/contracts": "^4.2.0",
+    "@pythnetwork/pyth-sdk-solidity": "^4.3.1",
+    "hardhat": "^2.28.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerrow-lending/zerrow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zerrow-lending/zerrow/issues"
+  },
+  "homepage": "https://github.com/zerrow-lending/zerrow#readme",
+  "description": ""
+}
