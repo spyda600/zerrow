@@ -482,6 +482,7 @@ contract lendingManager is ReentrancyGuard {
         require(amount > 0,"Lending Manager: Cant Pledge 0 amount");
         require(licensedAssets[tokenAddr].assetAddr == tokenAddr,"Lending Manager: Token not licensed");
         require(VaultTokensAmount(tokenAddr) >= amountNormalize,"Lending Manager: Vault Tokens amount NOT enough");
+        require(IERC20(tokenAddr).balanceOf(lendingVault) >= amount,"Lending Manager: Insufficient vault balance for withdrawal");
         // There is no need to check the mode
 
         iLendingVaults(lendingVault).vaultsERC20Approve(tokenAddr, amount);
@@ -508,6 +509,7 @@ contract lendingManager is ReentrancyGuard {
         require(amount > 0,"Lending Manager: Cant Pledge 0 amount");
         require(licensedAssets[tokenAddr].assetAddr == tokenAddr,"Lending Manager: Token not licensed");
         require(VaultTokensAmount(tokenAddr) >= amountNormalize,"Lending Manager: Vault Tokens amount NOT enough");
+        require(IERC20(tokenAddr).balanceOf(lendingVault) >= amount,"Lending Manager: Insufficient vault balance for borrow");
 
         if(userMode[user] == 1){
             require(tokenAddr == riskIsolationModeAcceptAssets,"Lending Manager: Wrong Token in Risk Isolation Mode");
