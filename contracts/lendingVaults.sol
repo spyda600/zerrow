@@ -55,7 +55,9 @@ contract lendingVaults  {
     function setRebalancer(address _rebalancer) external onlySetter{
         rebalancer = _rebalancer;
     }
-    // function assetsDepositAndLendAddrs(address token) external view returns(address[2] memory addrs)
+    // H-3 Mitigation: excessDisposal sweeps donated/excess tokens that sit outside
+    // supply-based accounting. Rebalancer should call this periodically to prevent
+    // balance divergence from being exploitable.
     function excessDisposal(address token) public onlyRebalancer(){
         address[2] memory pair = iLendingManager(lendingManager).assetsDepositAndLendAddrs(token);
         uint amountD18 = iDepositOrLoanCoin(pair[0]).totalSupply();
